@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -34,5 +35,10 @@ public class Libro implements Serializable {
     @Column(nullable = false)
     private Genero genero;
 
+    @ManyToMany(mappedBy = "libros")
+    private List<Prestamo> prestamos;
+
+    @ManyToMany
+    private List<Autor> autores;
 
 }

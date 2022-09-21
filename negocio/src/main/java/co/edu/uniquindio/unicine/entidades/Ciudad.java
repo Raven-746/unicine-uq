@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -21,5 +22,8 @@ public class Ciudad implements Serializable {
     @EqualsAndHashCode.Include
     @Column(length = 50, nullable = false)
     private String nombre;
+
+    @OneToMany(mappedBy = "ciudad")
+    private List<Cliente> clientes;
 
 }
